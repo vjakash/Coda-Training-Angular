@@ -17,11 +17,11 @@ export class AppComponent {
     let flag=true;
     if(this.newItem!==""){
       this.error="";
-      // this.basket.forEach(each=>{
-      //   if(each[0]==this.newItem){
-      //     flag=false;
-      //   }
-      // });
+      this.basket.forEach(each=>{
+        if(each.name==this.newItem){
+          flag=false;
+        }
+      });
       if(flag){
         if(this.fruits.indexOf(this.newItem)>-1) this.basket.push({name:this.newItem,type:ItemType.Fruit,id:this.basket.length});
         else if(this.vegetables.indexOf(this.newItem)>-1) this.basket.push({name:this.newItem,type:ItemType.Vegetable,id:this.basket.length});
