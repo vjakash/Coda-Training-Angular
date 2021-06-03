@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Item, ItemType } from './constants/app.constants';
 
 @Component({
   selector: 'app-root',
@@ -10,19 +11,21 @@ export class AppComponent {
   newItem:string="";
   fruits=['apple','orange','grapes','mango','kiwi','watermelon'];
   vegetables=['tomato','potato','carrot','onion','raddish'];
-  basket:Array<string[]>=[["apple","fruit"],["tomato","vegetable"],["phone","others"]];
+  basket:Array<Item>=[];
+  error="";
   addItem(){
     let flag=true;
     if(this.newItem!==""){
-      this.basket.forEach(each=>{
-        if(each[0]==this.newItem){
-          flag=false;
-        }
-      });
+      this.error="";
+      // this.basket.forEach(each=>{
+      //   if(each[0]==this.newItem){
+      //     flag=false;
+      //   }
+      // });
       if(flag){
-        if(this.fruits.indexOf(this.newItem)>-1) this.basket.push([this.newItem,"fruit"]);
-        else if(this.vegetables.indexOf(this.newItem)>-1) this.basket.push([this.newItem,"vegetable"]);
-        else this.basket.push([this.newItem,"others"]);
+        if(this.fruits.indexOf(this.newItem)>-1) this.basket.push({name:this.newItem,type:ItemType.Fruit,id:this.basket.length});
+        else if(this.vegetables.indexOf(this.newItem)>-1) this.basket.push({name:this.newItem,type:ItemType.Vegetable,id:this.basket.length});
+        else this.error="Enter valid item";
       }
       this.newItem="";
     }

@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Item, ItemType } from 'src/app/constants/app.constants';
 
 @Component({
   selector: 'app-item',
@@ -6,16 +7,13 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
   styleUrls: ['./item.component.css']
 })
 export class ItemComponent implements OnInit {
-  @Input() itemName:string="";
-  @Input() itemType:string="";
-  @Input() index:number=-1;
-
+  @Input() item:Item={name:"",type:ItemType.Fruit,id:0};
   @Output() deleteEmitter=new EventEmitter<number>();
   constructor() { }
 
   ngOnInit(): void {
   }
-  remove(index:number){
-    this.deleteEmitter.emit(index);
+  remove(){
+    this.deleteEmitter.emit(this.item.id);
   }
 }
