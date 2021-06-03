@@ -1,0 +1,10 @@
+<h1>Magic Basket</h1>
+
+<div class="inputContainer">
+  <input type="text" (keydown)="checkKey($event)" [(ngModel)]="newItem"  placeholder="Enter item"  />
+  <button (click)="addItem()">Add</button>
+</div>
+
+<div class="itemContainer">
+  <app-item *ngFor="let item of basket;let i=index" (deleteEmitter)="removeItem($event)" [index]="i" [itemName]="item[0]" [itemType]="item[1]"></app-item>
+</div>

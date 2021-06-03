@@ -1,0 +1,4 @@
+<div class="itemWrapper">
+    <p [ngClass]="{'fruit':itemType=='fruit','vegetable':itemType=='vegetable'}">{{itemName|titlecase}}</p>
+    <button (click)="remove(index)">Remove</button>
+</div>
