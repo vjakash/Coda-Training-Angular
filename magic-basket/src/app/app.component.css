@@ -5,26 +5,3 @@ h1{
     padding:20px;
     margin-bottom: 30px;
 }
-.inputContainer{
-    padding-left: 30px;
-}
-.inputContainer input{
-    outline: 0;
-    padding: 10px;
-    margin-right: 10px;
-}
-.inputContainer button{
-    border: none;
-    background-color: green;
-    color: #fff;
-    padding: 10px 30px;
-    font-size: 1.3em;
-    border-radius: 8px;
-    cursor: pointer;
-}
-.itemContainer{
-    margin-top: 20px;
-    padding-left:30px ;
-    display: flex;
-    flex-wrap: wrap;
-}

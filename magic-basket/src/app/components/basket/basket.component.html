@@ -1,0 +1,9 @@
+
+<div class="inputContainer">
+  <input type="text" (keydown)="checkKey($event)" [(ngModel)]="newItem"  placeholder="Enter item"  />
+  <button (click)="addItem()">Add</button>{{error}}
+</div>
+
+<div class="itemContainer">
+  <app-item *ngFor="let item of basket;" (deleteEmitter)="removeItem($event)"  [item]="item" ></app-item>
+</div>
